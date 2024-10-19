@@ -1,6 +1,8 @@
 const Product = require("../models/product")
 const getAllProducts = async (req, res) => {
     const { company, name ,featured,sort,select} = req.query
+    const status=res.status()
+    console.log("🚀 : ~ file: products.js:5 ~ getAllProducts ~ status", status);
     const queryObject = {}
     if (company) {
         queryObject.company = company
