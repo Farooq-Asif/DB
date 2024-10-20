@@ -10,7 +10,7 @@ const apiUrl = process.env.REACT_APP_API_URLT || 5000;
 const connectDB = require('./db/connect')
 
 const corsOrigin = {
-    origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app'],
+    origin: 'http://localhost:3000',
     credentials: true,
     optionSuccessStatus: 200
 }
@@ -25,8 +25,8 @@ const Login_routes = require("./routes/LoginData")
 const Sign_Up_routes = require("./routes/SignUpData")
 const Product_Add_routes = require("./routes/products")
 app.use("/api/products", products_routes)
-app.use("/api/login", Login_routes)
-app.use("/api/signup", Sign_Up_routes)
+app.use("/api/users/login", Login_routes)
+app.use("/api/users/signup", Sign_Up_routes)
 app.use("/api/product/add", Product_Add_routes)
 
 

@@ -1,6 +1,6 @@
 const SignupData = require('../models/signupSchema');
 const LoginData = require('../models/formDataSchema');
-const jwt = require('jsonwebtoken'); 
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const handleLoginSubmission = async (req, res) => {
@@ -19,19 +19,31 @@ const handleLoginSubmission = async (req, res) => {
 
         const Token = jwt.sign(
             { id: existingUser._id, email: existingUser.email },
-            'your-secret-key', 
-            { expiresIn: '1h' }  
+            'your-secret-key',
+            { expiresIn: '1h' }
         );
 
-        const newUser = new LoginData({
-            email,
-            password,  
-        });
-        await newUser.save();
+        const loginData = await LoginData.findOneAndUpdate(
+            { email },
+
+            {
+                password,
+                Token: Token,
+                isLoggedIn: true
+
+            },
+            { new: true, upsert: true }
+        );
+        await loginData.save();
 
         res.status(200).json({
             message: 'Login successful',
-            data: { name: existingUser.name, email: existingUser.email, date: newUser.date,  Token:Token  },
+            data: {
+                email: loginData.email,
+                Token: loginData.Token,
+                isLoggedIn: loginData.isLoggedIn,
+           
+            },
         });
     } catch (error) {
         console.error('Error during login:', error);

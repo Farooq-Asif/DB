@@ -8,7 +8,15 @@ const formDataSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    isLoggedIn: {
+        type: Boolean,
+        default: false
+    },
+    Token: {
+        type: String,
+        default: null
+    },
 });
 
 const FormData = mongoose.model('FormData', formDataSchema);
