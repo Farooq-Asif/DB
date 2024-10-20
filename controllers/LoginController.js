@@ -1,38 +1,37 @@
-// controllers/loginController.js
 const SignupData = require('../models/signupSchema');
-const LoginData = require('../models/formDataSchema')
+const LoginData = require('../models/formDataSchema');
+const jwt = require('jsonwebtoken'); 
 const bcrypt = require('bcrypt');
 
 const handleLoginSubmission = async (req, res) => {
     const { email, password } = req.body;
 
-
     try {
-        // Check if the user exists
         const existingUser = await SignupData.findOne({ email });
-
         if (!existingUser) {
             return res.status(404).json({ message: 'User not found' });
         }
 
-     
-
-        // Compare the provided password with the stored hashed password
         const isPasswordValid = await bcrypt.compare(password, existingUser.password);
-        const newUser = new LoginData({
-            email,
-            password: password,
-         
-        });
-        await newUser.save();
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid password' });
         }
-       
-        // Successful login
+
+        const Token = jwt.sign(
+            { id: existingUser._id, email: existingUser.email },
+            'your-secret-key', 
+            { expiresIn: '1h' }  
+        );
+
+        const newUser = new LoginData({
+            email,
+            password,  
+        });
+        await newUser.save();
+
         res.status(200).json({
             message: 'Login successful',
-            data: { name: existingUser.name, email: existingUser.email,date: newUser.date  },
+            data: { name: existingUser.name, email: existingUser.email, date: newUser.date,  Token:Token  },
         });
     } catch (error) {
         console.error('Error during login:', error);

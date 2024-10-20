@@ -10,7 +10,7 @@ const apiUrl = process.env.REACT_APP_API_URLT || 5000;
 const connectDB = require('./db/connect')
 
 const corsOrigin = {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app'],
     credentials: true,
     optionSuccessStatus: 200
 }
