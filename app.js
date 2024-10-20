@@ -21,9 +21,14 @@ app.get("/", (req, res) => {
     res.send("Hi, i am live")
 })
 const products_routes = require("./routes/products")
-const form_routes = require("./routes/form")
-app.use("/api", form_routes)
+const Login_routes = require("./routes/LoginData")
+const Sign_Up_routes = require("./routes/SignUpData")
+const Product_Add_routes = require("./routes/products")
 app.use("/api/products", products_routes)
+app.use("/api/login", Login_routes)
+app.use("/api/signup", Sign_Up_routes)
+app.use("/api/product/add", Product_Add_routes)
+
 
 const start = async () => {
     try {

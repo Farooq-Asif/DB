@@ -1,53 +1,88 @@
 [
-    {
-        "name":"iphone",
-        "price":154,
-        "featured":true,
-        "company":"apple"
+  {
+    "id": 1,
+    "name": "iphone",
+    "price": 154,
+    "featured": true,
+    "company": "apple"
+  },
+  {
+    "id": 2,
+    "name": "iphone10",
+    "price": 15224,
+    "featured": true,
+    "company": "apple"
+  },
+  {
+    "id": 3,
+    "name": "watch",
+    "price": 2004,
+    "company": "apple"
+  },
+  {
+    "id": 4,
+    "name": "watch12",
+    "price": 4442124,
+    "company": "apple"
+  },
+  {
+    "id": 5,
+    "name": "watchpro",
+    "price": 2121244,
+    "company": "apple"
+  },
+  {
+    "id": 6,
+    "name": "dell gaming",
+    "price": 2121244,
+    "company": "dell"
+  },
+  {
+    "name": "s20",
+    "price": 20,
+    "company": "Samsung"
+  },
+  {
+    "id": 7,
+    "name": "mi20",
+    "price": 701,
+    "company": "mi"
+  },
+  {
+    "id": 8,
+    "name": "cake",
+    "price": 701,
+    "company": "Bakery"
+  },
+  {
+    "id": 9,
+    "name": "iphone14",
+    "price": 15224,
+    "featured": false,
+    "rating": 4.9,
+    "createdAt": "2024-10-20T07:45:49.539Z",
+    "company": "apple",
+    "__v": 0
+  },
+  {
+    "id": 10,
+    "name": "koko",
+    "price": 15224,
+    "featured": false,
+    "rating": 4.9,
+    "createdAt": "2024-10-20T07:48:50.591Z",
+    "company": "Bakery",
+    "__v": 0
+  },
+  {
+    "Id": 11,
+    "name": "koko",
+    "price": 15224,
+    "featured": false,
+    "rating": 4.9,
+    "createdAt": "2024-10-20T07:55:23.725Z",
+    "company": "Bakery",
+    "__v": 0
+  }
 
-    },
-    {
-        "name":"iphone10",
-        "price":15224,
-        "featured":true,
-        "company":"apple"
-
-    },
-    {
-        "name":"watch",
-        "price":2004,
-        "company":"apple"
-
-    },
-    {
-        "name":"watch12",
-        "price":4442124,
-        "company":"apple"
-
-    },
-    {
-        "name":"watchpro",
-        "price":2121244,
-        "company":"apple"
-
-    },
-    {
-        "name":"dell gaming",
-        "price":2121244,
-        "company":"dell"
-
-    },
-    {
-        "name":"s20",
-        "price":20,
-        "company":"Samsung"
-
-    },
-    {
-        "name":"mi20",
-        "price":701,
-        "company":"mi"
-
-    }
 ]
-  
