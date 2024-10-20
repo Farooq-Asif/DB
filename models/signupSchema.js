@@ -13,6 +13,14 @@ const signupSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    Token: {
+        type: String,
+        default: null
+    },
+    SignUpAt: {
+        type: Date, 
+        default: Date.now 
+    }
    
    
 });
