@@ -3,6 +3,7 @@ const SignupData = require('../models/signupSchema');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const handleSignUpSubmission = async (req, res) => {
+   
     const { name, email, password } = req.body;
 
     try {
@@ -10,15 +11,19 @@ const handleSignUpSubmission = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
-
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'All fields are required' })
+        }
+      
         const hashedPassword = await bcrypt.hash(password, 10);
+   
 
         const Token = jwt.sign(
             { email: email },
             'your-secret-key',
             { expiresIn: '1h' }
         );
-   
+
         const SignUpAt = new Date();
         const newUser = new SignupData({
             name,
@@ -30,7 +35,7 @@ const handleSignUpSubmission = async (req, res) => {
 
         await newUser.save();
 
-        res.status(200).json({
+        res.status(201).json({
             message: 'User created successfully',
             data: { name, email, Token },
         });
