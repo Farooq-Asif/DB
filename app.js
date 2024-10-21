@@ -33,7 +33,7 @@ app.use("/api/products", products_routes)
 app.use("/api/category", Category_Data)
 app.use("/api/category/categorydelete", Category_Data_Delete)
 app.use("/api/category/categoryupdate", Category_Update)
-app.use("/api/category/addcategory",Category_Add)
+app.use("/api/category/addcategory", Category_Add)
 app.use("/api/product/add", Product_Add_routes)
 app.use("/api/users/login", (req, res) => {
     if (req.method !== 'POST') {
@@ -55,7 +55,7 @@ const start = async () => {
         await connectDB(process.env.MONGODB_URL)
 
         app.listen(apiUrl, () => {
-            console.log(`${apiUrl} Yes I am connected`)
+            console.log(` Server Running On ${apiUrl} PORT`)
         })
     }
     catch (error) {
