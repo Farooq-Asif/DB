@@ -1,7 +1,7 @@
 const CategorySchema = require('../models/CategorySchema');
 
 const CategoryController = async (req, res) => {
-    const { category } = req.body; // Extract the category name from the request body
+    const { category } = req.body; 
 
     try {
         // Check if the category already exists
@@ -15,6 +15,7 @@ const CategoryController = async (req, res) => {
         // Create a new category if it doesn't exist
         const newCategory = new CategorySchema({
             category,
+            IsActive:true
         });
         const categoryData = await newCategory.save();
 
@@ -23,6 +24,7 @@ const CategoryController = async (req, res) => {
             data: {
                 category: categoryData.category,
                 id: categoryData._id,
+                IsActive:categoryData.IsActive
             },
         });
 
