@@ -5,11 +5,14 @@ const bcrypt = require('bcrypt');
 
 const handleLoginSubmission = async (req, res) => {
     const { email, password } = req.body;
-
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ message: 'Please enter a valid email address' });
+    }
     try {
         const existingUser = await SignupData.findOne({ email });
         if (!existingUser) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(400).json({ message: 'User not found' });
         }
 
         const isPasswordValid = await bcrypt.compare(password, existingUser.password);

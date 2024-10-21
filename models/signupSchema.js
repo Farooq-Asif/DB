@@ -7,8 +7,14 @@ const signupSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
-    },   
+        required: true,
+        unique: true,
+        lowercase: true,
+        match: [
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            'Please enter a valid email address'
+        ]
+    },
     password: {
         type: String,
         required: true
@@ -18,11 +24,11 @@ const signupSchema = new mongoose.Schema({
         default: null
     },
     SignUpAt: {
-        type: Date, 
-        default: Date.now 
+        type: Date,
+        default: Date.now
     }
-   
-   
+
+
 });
 
 const SignupSchema = mongoose.model('SignUpData', signupSchema);
