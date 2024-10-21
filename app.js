@@ -4,7 +4,7 @@ const cors = require("cors")
 const express = require('express')
 const connectDB = require('./db/connect')
 const app = express()
-const apiUrl = process.env.REACT_APP_API_URLT || 5001;
+const apiUrl = process.env.REACT_APP_API_URLT || 5000;
 const { urlencoded } = require("body-parser");
 
 const products_routes = require("./routes/products")
@@ -16,13 +16,12 @@ const Category_Data=require("./routes/CategoryData")
 const Category_Data_Delete= require("./routes/CategoryDelete")
 const Category_Update= require("./routes/CategoryUpdate")
 
-const corsOrigin = {
-    origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app', 'http://localhost:5173'],
-    credentials: true,
-    optionSuccessStatus: 200
-}
-
-app.use(cors(corsOrigin));
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app', 'https://your-frontend-domain'],
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
