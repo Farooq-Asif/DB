@@ -6,6 +6,6 @@ const router = express.Router();
 const { CategoryUpdateController } = require('../controllers/CategoryUpdateController');
 
 
-router.put('/', CategoryUpdateController);
+router.patch('/', CategoryUpdateController);
 
 module.exports = router;
