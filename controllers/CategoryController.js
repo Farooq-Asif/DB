@@ -4,11 +4,9 @@ const CategoryController = async (req, res) => {
     const { category } = req.body; 
 
     try {
-        // Check if the category already exists
         const existingCategory = await CategorySchema.findOne({ category });
 
         if (existingCategory) {
-            // If the category already exists, return an error
             return res.status(400).json({ message: 'Category already exists' });
         }
 

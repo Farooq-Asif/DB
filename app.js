@@ -15,6 +15,8 @@ const Category_Add=require("./routes/Category")
 const Category_Data=require("./routes/CategoryData")
 const Category_Data_Delete= require("./routes/CategoryDelete")
 const Category_Update= require("./routes/CategoryUpdate")
+const Order_Add= require("./routes/Order")
+const Get_Order= require("./routes/GetOrder")
 
 const corsOptions = {
   origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app', 'https://your-frontend-domain'],
@@ -34,6 +36,8 @@ app.use("/api/category", Category_Data)
 app.use("/api/category/categorydelete", Category_Data_Delete)
 app.use("/api/category/categoryupdate", Category_Update)
 app.use("/api/category/addcategory", Category_Add)
+app.use("/api/order/add", Order_Add)
+app.use("/api/orders", Get_Order)
 app.use("/api/product/add", Product_Add_routes)
 app.use("/api/users/login", (req, res) => {
     if (req.method !== 'POST') {

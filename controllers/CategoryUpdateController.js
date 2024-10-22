@@ -1,12 +1,10 @@
-// controllers/CategoryUpdateController.js
 const Category = require('../models/CategorySchema'); // Adjust the path to your model
 
 const CategoryUpdateController = async (req, res) => {
     const { id, category, IsActive } = req.body; // Assuming you're sending ID and new category name in the request body
     console.log("🚀 : ~ file: CategoryUpdateController.js:6 ~ CategoryUpdateController ~ category", category);
-    console.log("🚀 : ~ file: CategoryUpdateController.js:6 ~ CategoryUpdateController ~ IsActive", IsActive);
-
-    if (!id || !category) {
+  
+    if (!id || !category || IsActive) {
         return res.status(400).json({ message: 'ID and category name are required.' });
     }
    
