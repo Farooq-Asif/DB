@@ -25,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 const corsOptions = {
     origin: [
         'http://localhost:3000',
-        'https://my-app-blue-alpha.vercel.app',
+        'https://my-app-blue-alpha.vercel.app/',
         'http://localhost:3001'
     ],
     credentials: true,
