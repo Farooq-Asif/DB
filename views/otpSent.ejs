@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Sent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #4A5EA6;
+            margin-bottom: 15px;
+        }
+
+        .otp-code {
+            font-size: 32px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin: 20px 0;
+        }
+
+        .note {
+            font-size: 16px;
+            color: #777;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #29519b;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+      li a[href]{
+        color: white;
+      }
+        .icon-container {
+            margin: 15px 0;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <h1>OTP Sent!</h1>
+        <p class="otp-code">Your OTP code is: <strong><%= otp %></strong></p>
+        <p class="note">It is valid for 10 minutes. Please check your email to verify your account.</p>
+        <a href="/verify" class="btn">Verify Your Account</a>
+    </div>
+</body>
+</html>

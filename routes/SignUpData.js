@@ -1,11 +1,14 @@
+// routes.js
+
 const express = require('express');
-const app = express()
 const router = express.Router();
-
-
 const { handleSignUpSubmission } = require('../controllers/signupController');
+const { verifyOTP } = require('../controllers/verifyOtpController');
+const { handleLoginSubmission } = require('../controllers/LoginController');
 
-
-router.post('/', handleSignUpSubmission);
-
+// Signup route
+router.post('/signup', handleSignUpSubmission);
+router.post('/otpverify', verifyOTP);
+router.use("/login", handleLoginSubmission);
 module.exports = router;
+

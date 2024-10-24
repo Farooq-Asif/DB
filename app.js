@@ -4,12 +4,12 @@ const cors = require("cors")
 const express = require('express')
 const connectDB = require('./db/connect')
 const app = express()
-const apiUrl = process.env.REACT_APP_API_URLT || 5000;
+const apiUrl = process.env.PORT || 5000;
 const { urlencoded } = require("body-parser");
+const path = require('path');
 
 const products_routes = require("./routes/products")
-const Login_routes = require("./routes/LoginData")
-const Sign_Up_routes = require("./routes/SignUpData")
+
 const Product_Add_routes = require("./routes/products");
 const Category_Add=require("./routes/Category")
 const Category_Data=require("./routes/CategoryData")
@@ -17,9 +17,13 @@ const Category_Data_Delete= require("./routes/CategoryDelete")
 const Category_Update= require("./routes/CategoryUpdate")
 const Order_Add= require("./routes/Order")
 const Get_Order= require("./routes/GetOrder")
+const routes = require('./routes/SignUpData');
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app', 'https://your-frontend-domain'],
+  origin: ['http://localhost:3000', 'https://my-app-blue-alpha.vercel.app','http://localhost:3001'],
   credentials: true,
   optionSuccessStatus: 200,
 };
@@ -39,20 +43,8 @@ app.use("/api/category/addcategory", Category_Add)
 app.use("/api/order/add", Order_Add)
 app.use("/api/orders", Get_Order)
 app.use("/api/product/add", Product_Add_routes)
-app.use("/api/users/login", (req, res) => {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: `${req.method} Method not allowed` });
-    } else {
-        return Login_routes(req, res);
-    }
-});
-app.use("/api/users/signup", (req, res) => {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: `${req.method} Method not allowed` });
-    } else {
-        return Sign_Up_routes(req,res);
-    }
-});
+
+app.use('/api/users', routes);
 
 const start = async () => {
     try {

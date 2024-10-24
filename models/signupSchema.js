@@ -26,11 +26,20 @@ const signupSchema = new mongoose.Schema({
     SignUpAt: {
         type: Date,
         default: Date.now
+    },
+    OTP: {
+        type: Number,
+        default: null
+    },
+    OTPExpiry: {
+        type: Date,
+        default: null
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
     }
-
-
 });
 
 const SignupSchema = mongoose.model('SignUpData', signupSchema);
-
 module.exports = SignupSchema;
