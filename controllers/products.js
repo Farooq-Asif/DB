@@ -33,7 +33,7 @@ const getAllProducts = async (req, res) => {
 }
 
 const getAllProductsTesting = async (req, res) => {
-    const Data = await Product.find(req.query).select("name company")
+    const Data = await Product.find(req.query).select("name Company")
     res.status(200).json({ Data })
 }
 
