@@ -4,7 +4,7 @@ const cors = require("cors")
 const express = require('express')
 const connectDB = require('./db/connect')
 const app = express()
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 const { urlencoded } = require("body-parser");
 const path = require('path');
 
