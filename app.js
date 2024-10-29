@@ -31,16 +31,19 @@ app.set('views', path.join(__dirname, 'views'));
 //     credentials: true,
 //     optionSuccessStatus: 200,
 // };
-// app.use(cors(corsOptions));
-app.use(cors({
+const corsOptions = {
     origin: [
+        'https://my-app-blue-alpha.vercel.app',
         'http://localhost:3000',
-        'https://my-app-blue-alpha.vercel.app/',
         'http://localhost:3001'
-    ], // Allows all origins; update this if you want specific origins only
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods if needed
-    allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
-}));
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    optionsSuccessStatus: 200 // For legacy browsers
+};
+app.use(cors(corsOptions));
+
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
