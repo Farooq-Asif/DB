@@ -22,16 +22,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const corsOptions = {
+// const corsOptions = {
+//     origin: [
+//         'http://localhost:3000',
+//         'https://my-app-blue-alpha.vercel.app/',
+//         'http://localhost:3001'
+//     ],
+//     credentials: true,
+//     optionSuccessStatus: 200,
+// };
+// app.use(cors(corsOptions));
+app.use(cors({
     origin: [
         'http://localhost:3000',
         'https://my-app-blue-alpha.vercel.app/',
         'http://localhost:3001'
-    ],
-    credentials: true,
-    optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+    ], // Allows all origins; update this if you want specific origins only
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods if needed
+    allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
+}));
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
