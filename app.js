@@ -4,7 +4,7 @@ const cors = require("cors")
 const express = require('express')
 const connectDB = require('./db/connect')
 const app = express()
-const apiUrl = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const { urlencoded } = require("body-parser");
 const path = require('path');
 
@@ -66,8 +66,8 @@ const start = async () => {
     try {
         await connectDB(process.env.MONGODB_URL)
 
-        app.listen(apiUrl, () => {
-            console.log(` Server Running On ${apiUrl} PORT`)
+        app.listen(PORT, () => {
+            console.log(` Server Running On ${PORT} PORT`)
         })
     }
     catch (error) {
