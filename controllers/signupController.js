@@ -89,7 +89,7 @@ const handleSignUpSubmission = async (req, res) => {
 
         // Send a response to the client
         res.status(201).json({
-            message: 'User created successfully. OTP sent to email. Please verify your account.',
+            message: 'User created successfully. 6 Digits OTP sent to Your email. Please verify your account.',
             data: { userId: newUser._id, email }
         });
     } catch (error) {
