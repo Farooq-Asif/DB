@@ -55,7 +55,6 @@ const verifyOTP = async (req, res) => {
     const { userId, otp } = req.body;
 
     try {
-        // Fetch the user from the database
         const user = await SignupData.findById(userId);
 
         // Check if the user exists
@@ -87,9 +86,7 @@ const verifyOTP = async (req, res) => {
         // Send a success response
         res.status(200).json({ message: 'User verified successfully' });
     } catch (error) {
-        // Log the error for debugging purposes
         console.error('Error verifying OTP:', error);
-        // Return a generic error message to the client
         res.status(500).json({ message: 'Error verifying OTP', error: error.message });
     }
 };

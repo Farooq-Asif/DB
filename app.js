@@ -22,26 +22,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// const corsOptions = {
-//     origin: [
-//         'http://localhost:3000',
-//         'https://my-app-blue-alpha.vercel.app/',
-//         'http://localhost:3001'
-//     ],
-//     credentials: true,
-//     optionSuccessStatus: 200,
-// };
 const corsOptions = {
     origin: [
-        'https://my-app-blue-alpha.vercel.app',
         'http://localhost:3000',
+        'https://my-app-blue-alpha.vercel.app/',
         'http://localhost:3001'
     ],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200 // For legacy browsers
+    optionSuccessStatus: 200,
 };
+// const corsOptions = {
+//     origin: [
+//         'https://my-app-blue-alpha.vercel.app',
+//         'http://localhost:3000',
+//         'http://localhost:3001'
+//     ],
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     optionsSuccessStatus: 200 // For legacy browsers
+// };
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: false }))

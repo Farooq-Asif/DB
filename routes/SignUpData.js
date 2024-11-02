@@ -6,7 +6,6 @@ const { handleSignUpSubmission } = require('../controllers/signupController');
 const { verifyOTP } = require('../controllers/verifyOtpController');
 const { handleLoginSubmission } = require('../controllers/LoginController');
 
-// Signup route
 router.post('/signup', handleSignUpSubmission);
 router.post('/otpverify', verifyOTP);
 router.post("/login", handleLoginSubmission);
