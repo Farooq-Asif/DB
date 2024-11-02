@@ -4,11 +4,11 @@ const SignupData = require('../models/signupSchema');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
-const { generateOTP } = require('../utils/generateOTP'); // Ensure this file exists
+const { generateOTP } = require('../utils/generateOTP');
 const ejs = require('ejs');
 const path = require('path');
 
-// Helper function to send OTP via email using Nodemailer
+
 const sendOTPEmail = async (email, otp) => {
     const transporter = nodemailer.createTransport({
         host: process.env.MAIL_HOST,
@@ -46,27 +46,23 @@ const sendOTPEmail = async (email, otp) => {
 const handleSignUpSubmission = async (req, res) => {
     const { name, email, password } = req.body;
 
-    // Check if all fields are provided
     if (!name || !email || !password) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
     try {
-        // Check if user already exists
         const existingUser = await SignupData.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Generate OTP and its expiration time (10 minutes)
         const otp = generateOTP();
-        const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // OTP expires in 10 minutes
+        const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); 
 
         // Send OTP to user's email
-        await sendOTPEmail(email, otp);  // <--- CALLING THE FUNCTION HERE
+        await sendOTPEmail(email, otp);  
 
         const Token = jwt.sign(
             { email: email },
