@@ -12,7 +12,7 @@ const sendOTPEmail = async (email, otp) => {
             pass: process.env.MAIL_PASSWORD  
         },
         debug: true
-    });
+    }); 
 
     const mailOptions = {
         from: process.env.MAIL_USER,

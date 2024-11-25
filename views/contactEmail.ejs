@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .title {
+        color: #333;
+        font-weight: bold;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <img src="../images/star-badge.png" alt="" />
+      <h2 class="title">Digital Empires</h2>
+      <p>
+        <strong>User Name:</strong>
+        <%= name %>
+      </p>
+      <p>
+        <strong>User Email:</strong>
+        <%= email %>
+      </p>
+      <img src='/images/star-badge.png' alt="">
+      <p>
+        <strong>Address:</strong>
+        <%= address %>
+      </p>
+
+      <p>
+        <strong>Message:</strong>
+        <%= message %>
+      </p>
+
+      <div class="footer">
+        <p>This email was generated automatically by your contact form.</p>
+      </div>
+    </div>
+  </body>
+</html>

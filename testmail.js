@@ -23,7 +23,7 @@ const sendOTPEmail = async (email, otp) => {
 
     const mailOptions = {
         from: process.env.MAIL_USER,
-        to: 'saabfarooq549@gmail.com',
+        to: 'hi@sanablogs.com',
         subject: 'Your OTP Code',
         text: `Your OTP code is ${otp}. It is valid for 10 minutes.`
     };
