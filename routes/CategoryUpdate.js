@@ -7,5 +7,4 @@ const { CategoryUpdateController } = require('../controllers/CategoryUpdateContr
 
 
 router.patch('/', CategoryUpdateController);
-
 module.exports = router;
