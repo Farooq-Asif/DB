@@ -18,6 +18,7 @@ const Category_Update = require("./routes/CategoryUpdate")
 const Order_Add = require("./routes/Order")
 const Get_Order = require("./routes/GetOrder")
 const routes = require('./routes/SignUpData');
+const contactUs = require('./routes/EmpiresContact');
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -61,6 +62,7 @@ app.use("/api/orders", Get_Order)
 app.use("/api/product/add", Product_Add_routes)
 
 app.use('/api/users', routes);
+app.use('/digitalempires', contactUs);
 
 const start = async () => {
     try {

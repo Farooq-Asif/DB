@@ -1,0 +1,55 @@
+<html>
+<body style="margin: 0; padding: 0; background-color: #ffffff; font-family: Arial, sans-serif; text-align: center;">
+
+    <!-- Centered Email Container -->
+    <div style="
+        max-width: 600px; 
+        margin: 50px auto; 
+        background: #ffffff; 
+        border: 1px solid #ddd; 
+        border-radius: 8px; 
+        padding: 20px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        text-align: left;"
+    >
+        <!-- Header Section -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h1>Digital Empires</h1>
+            <!-- <img src="../images/Screenshot-2023-12-27-122040.png" alt="Logo" style="max-width: 100%; height: auto;"> -->
+        </div>
+       
+
+        <!-- Main Content -->
+        <h1 style="color: #333; font-size: 24px;">Hello Hamid,</h1>
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+            <strong style="color: #000;"> You received a message from :</strong>  <%= email %>
+        </p>
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+            <strong style="color: #000;"> Name :</strong> <%= name %>
+        </p>
+        
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+           <strong style="color: #000;"> Country :</strong> <%= country %>
+        </p>
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+            <strong style="color: #000;"> Company Website Link :</strong> <%= companyUrl %>
+        </p>
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+            <strong style="color: #000;"><%= name %> is a : </strong>  <%= user_type %>
+        </p>
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+            <strong style="color: #000;"> User Want to : </strong> <%= topic %>
+        </p>
+
+        <p style="color: #555; font-size: 16px; line-height: 1.4;">
+            <strong>Message :</strong> <%= message %>
+        </p>
+
+        <!-- Footer Section -->
+        <p style="font-size: 14px; color: #888; text-align: center; margin-top: 30px;">
+            This email was sent via the Contact Us form.
+        </p>
+    </div>
+
+</body>
+</html>
