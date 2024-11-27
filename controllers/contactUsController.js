@@ -57,11 +57,11 @@ const handleContactUs = async (req, res) => {
       
 
         res.status(200).json({
-            message: 'Success.!',
-       
+            message: "Your form has been successfully submitted!",
         });
+        
     } catch (error) {
-        res.status(500).json({ message: 'Failed !' });
+        res.status(500).json({    message: "Failed to process your request. Please try again later"});
     }
 };
 
