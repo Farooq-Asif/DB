@@ -27,6 +27,7 @@ const corsOptions = {
     origin: [
         'http://localhost:3000',
         'https://my-app-blue-alpha.vercel.app',
+        'https://digital-empires-git-master-farooq-s-projects-57cf4824.vercel.app/',
         'http://localhost:3001'
     ],
     credentials: true,
