@@ -52,7 +52,7 @@ const handleContactUs = async (req, res) => {
 
 
         
-        // await sendEmail(name, email,message,country,companyUrl,user_type,topic);  
+        await sendEmail(name, email,message,country,companyUrl,user_type,topic);  
 
       
 
